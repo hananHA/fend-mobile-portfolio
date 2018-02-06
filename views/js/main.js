@@ -450,6 +450,7 @@ var resizePizzas = function(size) {
 
   // Iterates through pizza elements on the page and changes their widths
   function changePizzaSizes(size) {
+    // Change the width of the pizza according to the switcher
     switch(size) {
         case "1":
           newwidth = 25;
@@ -464,8 +465,10 @@ var resizePizzas = function(size) {
           console.log("bug in sizeSwitcher");
       }
 
+    // Define an array that gets all the elements with .randomPizzaContainer class
     var pizzaContainer = document.getElementsByClassName("randomPizzaContainer");
 
+    // Loop through the array and change the width of each element
     for (var i = 0; i < pizzaContainer.length; i++) {
       pizzaContainer[i].style.width = newwidth +"%";
     }
@@ -517,6 +520,7 @@ function updatePositions() {
   window.performance.mark("mark_start_frame");
 
   var items = document.getElementsByClassName('mover');
+  // Declare scrollTop out of the loop
   var scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
   for (var i = 0; i < items.length; i++) {
     // document.body.scrollTop is no longer supported in Chrome.
@@ -541,6 +545,7 @@ window.addEventListener('scroll', updatePositions);
 document.addEventListener('DOMContentLoaded', function() {
   var cols = 8;
   var s = 256;
+  // Create 32 img instead of 200 to enhance performance
   for (var i = 0; i < 32; i++) {
     var elem = document.createElement('img');
     elem.className = 'mover';
